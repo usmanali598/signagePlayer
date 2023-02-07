@@ -1,0 +1,78 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ .Container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+.playlistContainer{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 15px;
+}
+
+.inputContainer{
+  background: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.signageVideo{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 0px;
+}
+
+.signageImage{
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+}
+
+li{
+  color: rgb(10, 236, 40);
+  margin-left:60px;
+}
+
+.cardButton{
+  align-self: center;
+  text-align: center;
+  display: flex;
+  margin: 5px auto;
+}
+
+.deletePItem{
+  position: absolute;
+  right: 12px;
+  font-size: 15px;
+}
+
+.sortSection{
+  display: flex;
+  justify-content: center;
+}
+
+.removePListX{
+  position: absolute;
+  right: 25px;
+  top: 15px;
+}
+
+.invalidUrl{
+  border: 2px solid red;
+}
+
+.alertStyle{
+  width: 50%;
+  margin: 0 auto;
+}

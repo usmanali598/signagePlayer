@@ -1,0 +1,41 @@
+version: "3.3"
+
+services:
+  frontend:
+    container_name: react-app
+    build: ./client/
+    restart: always
+    ports:
+      - 5173:5173
+    volumes:
+      - ./client/:/src/app/client/
+      # - ./client/node_modules:/src/app/client/node_modules
+
+
+  mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27018:27017
+    volumes:
+      - mongo_db:/data/db
+
+  backend:
+    build: 
+      context: ./server/
+      dockerfile: dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./server/:/src/app/server/
+      # - ./server/node_modules:/src/app/server/node_modules
+    environment:
+      PORT: 3000
+      mongoURI: mongodb://mongo_db:27017/playlist
+    depends_on:
+    - mongo_db
+
+volumes:
+  mongo_db: {}
+

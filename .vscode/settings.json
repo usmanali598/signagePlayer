@@ -1,0 +1,7 @@
+{
+  "search.exclude": {
+     "**/node_modules": false,
+     "**/package-lock.json": true,
+     "**/package.json": true,
+   }
+}

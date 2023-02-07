@@ -1,0 +1,7 @@
+# TS -incremental file
+tsconfig.tsbuildinfo
+.env
+.vscode
+
+dist
+node_modules
