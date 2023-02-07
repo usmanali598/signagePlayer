@@ -23,7 +23,7 @@ docker-compose up
 ```
 
 if no docker installed on the machine then for manual installation, follow as below:
-
+```bash
 cd fullstack/server
 
 # packages installation
@@ -31,21 +31,19 @@ cd fullstack/server
 - npm run client-install
 
 # To run the Apps parallelly:
-
-```sh
-npm run build #compiling typescript in watch mode. open the new terminal and run as follows:
+npm run build # for compiling typescript in watch mode. open the new terminal and run as follows:
 npm run dev
 ```
 
-# Running separately:
+## Running separately:
 ```sh
 #Backend
-- npm dev-start
+- npm run dev-start
 
 #Frontend
 - npm run client
 ```
-# For End to End Tests
+## For End to End Tests
 ```sh
 - npm run e2e
 ```
