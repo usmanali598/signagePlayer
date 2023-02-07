@@ -5,46 +5,64 @@ Update: docker is added and project is reorganised.
 A Signage player for creating playlists containing images and videos that also support playing mp4 videos and images for 7 seconds.
 
 
-After cloning the app. Please, use the commands below to run locally.
+After cloning the app. Create .env file in server directory and add as follows.
+
+```sh
+ PORT=3000
+ mongoURI=mongodb://localhost:27017/playlist #for local development
+```
+
+ Please, use the commands below to run locally.
 
 ```bash
+# For running in docker
+
 cd fullstack
+docker-compose --build
+docker-compose up
+```
+
+if no docker installed on the machine then for manual installation, follow as below:
+
+cd fullstack/server
 
 # packages installation
 - npm ci
 - npm run client-install
 
 # To run the Apps parallelly:
-- npm run tsc
-- npm run dev
+
+```sh
+npm run build #compiling typescript in watch mode. open the new terminal and run as follows:
+npm run dev
+```
 
 # Running separately:
-
+```sh
 #Backend
-- npm start
+- npm dev-start
 
 #Frontend
 - npm run client
-
+```
 # For End to End Tests
+```sh
 - npm run e2e
 ```
 
 ## Usage
 
-```ts
 Remove the old documents in the collection if you have used the first verion of this app. If not, then just run the app by using following endpoints. 
 
 ## Endpoints
-
-- For all the playlists
+```bash
+# For all the playlists
 http://localhost:3000/playlist 
 
-For specific playlist
+# For specific playlist
 http://localhost:3000/playlist/{id}
 
-
-Frontend 
+# Frontend 
 http://localhost:5173
 
 ```
