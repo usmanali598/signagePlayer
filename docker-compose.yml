@@ -9,7 +9,7 @@ services:
       - 5173:5173
     volumes:
       - ./client/:/src/app/client/
-      # - ./client/node_modules:/src/app/client/node_modules
+      - ./client/node_modules:/src/app/client/node_modules
 
 
   mongo_db:
@@ -29,7 +29,7 @@ services:
       - 3000:3000
     volumes:
       - ./server/:/src/app/server/
-      # - ./server/node_modules:/src/app/server/node_modules
+      - ./server/node_modules:/src/app/server/node_modules
     environment:
       PORT: 3000
       mongoURI: mongodb://mongo_db:27017/playlist

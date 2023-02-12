@@ -1,8 +1,16 @@
 import { Schema, model } from 'mongoose';
 
+type URL = {
+    url : string
+}
+interface IPlaylist {
+  name: string,
+  urls?: URL
+}
+
 const childSchema = new Schema({ url: String });
 // Create Schema
-const PlaylistSchema = new Schema<any>({
+const PlaylistSchema = new Schema<IPlaylist>({
     name: {
         type: String,
         required: true
@@ -10,6 +18,6 @@ const PlaylistSchema = new Schema<any>({
     urls: [childSchema]
 }, {timestamps: true});
 
-const Playlist = model<any>('Playlist', PlaylistSchema);
+const Playlist = model<IPlaylist>('Playlist', PlaylistSchema);
 
 export default Playlist;

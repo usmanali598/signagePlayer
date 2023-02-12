@@ -10,7 +10,7 @@
     "dev-start": "nodemon build/index.js",
     "start":"NODE_PATH=./build node build/index.js",
     "test": "jest --testPathPattern=src/__test__",
-    "dev-cli": "concurrently \"npm run dev-start\" \"npm run client\"",
+    "dev-cli": "concurrently \"npm run dev\" \"npm run client\"",
     "dev": "nodemon --watch src --exec ts-node src/index.ts"
   },
   "keywords": [],

@@ -1,10 +1,10 @@
-import express from 'express';
-const app = express();
+import express, {Request, Response, NextFunction, Application, ErrorRequestHandler} from 'express';
 import playlistRouter from "./routes/playlist";
 import mongoose, { connect, ConnectOptions } from "mongoose";
 import cors from 'cors';
 import dotenv from 'dotenv';
 import createError from 'http-errors';
+const app : Application = express();
 
 dotenv.config();
 //Bodyparser Middleware
@@ -28,12 +28,12 @@ app.get('/', (req, res)=>{
 
 app.use('/playlist', playlistRouter);
 
-app.use((req, res, next) => {
+app.use((req:Request, res: Response, next: NextFunction) => {
   next(createError(404, "Not Found!"))
 })
 
 // error handling middleware
-app.use((err, req, res, next) => {
+const errorHandler : ErrorRequestHandler = (err, req, res, next) => {
   res.status(err.status || 500);
   res.send({
     error: {
@@ -41,6 +41,8 @@ app.use((err, req, res, next) => {
       message: err.message
     }
   })
-})
+}
+
+app.use(errorHandler);
 
 export default app;
